@@ -31,11 +31,7 @@ RUN rpm -Uvh perl-DBD-Sybase-1.16-1.el7.centos.x86_64.rpm
 
 RUN wget http://github.com/gnosek/fcgiwrap/tarball/master -O fcgiwrap.tar.gz
 RUN tar zxvf fcgiwrap.tar.gz
-RUN cd gnosek-fcgiwrap-99c942c
-RUN autoreconf -i
-RUN ./configure
-RUN make
-RUN make install 
+RUN cd gnosek-fcgiwrap-99c942c && autoreconf -i && ./configure && make && make install 
 
 RUN tee -a /etc/sysconfig/spawn-fcgi << EOF \
 OPTIONS="-u root -g root -a 127.0.0.1 -p 9090 -P /var/run/spawn-fcgi.pid -- /usr/local/sbin/fcgiwrap" \
