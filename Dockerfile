@@ -4,16 +4,9 @@ MAINTAINER "Reynier de la Rosa" <reynier.delarosa@outlook.es>
 
 RUN yum -y update
 RUN yum -y install epel-release \
-                   wget \
-                   yum-utils \
-                   freedts \
-                   freetds-devel \
-                   gcc \
-                   make
-RUN mkdir -p /tmp/freetds/include
-RUN ln -s /usr/include /tmp/freetds/include/freetds
-RUN ln -s /usr/lib64/ /tmp/freetds/lib64
-RUN ln -s /usr/lib/ /tmp/freetds/lib
+                   wget
+RUN yum -y install freedts \
+                   freetds-devel
 RUN wget http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
 RUN wget https://driesrpms.eu/redhat/el7/en/x86_64/dries.all/RPMS/perl-Class-Multimethods-1.70-1.2.el7.rf.noarch.rpm
 RUN wget https://driesrpms.eu/redhat/el7/en/x86_64/dries.all/RPMS/perl-Quantum-Superpositions-2.02-1.2.el7.rf.noarch.rpm
