@@ -31,7 +31,7 @@ RUN rpm -Uvh perl-DBD-Sybase-1.16-1.el7.centos.x86_64.rpm
 
 RUN wget http://github.com/gnosek/fcgiwrap/tarball/master -O fcgiwrap.tar.gz
 RUN tar zxvf fcgiwrap.tar.gz
-RUN cd gnosek-fcgiwrap-*
+RUN cd gnosek-fcgiwrap-99c942c
 RUN autoreconf -i
 RUN ./configure
 RUN make
