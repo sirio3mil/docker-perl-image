@@ -5,7 +5,7 @@ MAINTAINER "Reynier de la Rosa" <reynier.delarosa@outlook.es>
 RUN yum -y update
 RUN yum -y install epel-release \
                    wget
-RUN yum install -y freedts \
+RUN yum -y install freedts \
                    freetds-devel \
                    perl \
                    perl-SOAP-Lite \
