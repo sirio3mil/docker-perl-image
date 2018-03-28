@@ -39,4 +39,7 @@ RUN echo -e 'OPTIONS="-u nginx -g wheel -p 9090 -P /var/run/spawn-fcgi.pid -- /u
  
 EXPOSE 9090
 
-ENTRYPOINT ["/etc/rc.d/init.d/spawn-fcgi start"]
+ADD container-files/script/* /tmp/script/
+RUN chmod +x /tmp/script/bootstrap.sh
+
+ENTRYPOINT ["/tmp/script/bootstrap.sh"]
