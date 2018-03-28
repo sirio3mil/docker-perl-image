@@ -33,7 +33,9 @@ RUN wget http://github.com/gnosek/fcgiwrap/tarball/master -O fcgiwrap.tar.gz
 RUN tar zxvf fcgiwrap.tar.gz
 RUN cd gnosek-fcgiwrap-99c942c && autoreconf -i && ./configure && make && make install 
 
-RUN echo -e 'OPTIONS="-u root -g root -p 9090 -P /var/run/spawn-fcgi.pid -- /usr/local/sbin/fcgiwrap"' >> /etc/sysconfig/spawn-fcgi
+RUN adduser nginx && usermod -aG wheel apache
+
+RUN echo -e 'OPTIONS="-u nginx -g wheel -p 9090 -P /var/run/spawn-fcgi.pid -- /usr/local/sbin/fcgiwrap"' >> /etc/sysconfig/spawn-fcgi
  
 EXPOSE 9090
 
